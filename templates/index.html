@@ -10,19 +10,45 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     >
 
+    <!-- PWA Theme -->
     <meta
         name="theme-color"
         content="#0b0d12"
     >
 
+    <!-- App Description -->
     <meta
         name="description"
-        content="Simple modern Flask calculator"
+        content="Simple modern mobile calculator built with Flask."
     >
 
-    <title>Calc</title>
+    <!-- PWA Manifest -->
+    <link
+        rel="manifest"
+        href="{{ url_for('static', filename='manifest.json') }}"
+    >
+
+    <!-- Apple / iPhone PWA Support -->
+    <meta
+        name="apple-mobile-web-app-capable"
+        content="yes"
+    >
+
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+    >
+
+    <meta
+        name="apple-mobile-web-app-title"
+        content="Calculator"
+    >
+
+    <title>Calculator</title>
+
 
     <!-- CSS -->
+
     <link
         rel="stylesheet"
         href="{{ url_for('static', filename='css/style.css') }}"
@@ -34,7 +60,9 @@
 <body>
 
 
-    <!-- App -->
+    <!-- =========================
+         APP
+    ========================== -->
 
     <main class="app">
 
@@ -64,6 +92,7 @@
                 class="icon-button"
                 id="themeBtn"
                 aria-label="Change theme"
+                type="button"
             >
                 ☀
             </button>
@@ -76,12 +105,20 @@
              CALCULATOR
         ========================== -->
 
-        <section class="calculator-card">
+        <section
+            class="calculator-card"
+            aria-label="Calculator"
+        >
 
 
-            <!-- Display -->
+            <!-- =========================
+                 DISPLAY
+            ========================== -->
 
-            <div class="display">
+            <div
+                class="display"
+                aria-live="polite"
+            >
 
                 <div
                     id="previousDisplay"
@@ -109,44 +146,57 @@
             <div class="buttons">
 
 
-                <!-- ROW 1 -->
+                <!-- =====================
+                     ROW 1
+                ====================== -->
 
                 <button
+                    type="button"
                     class="calc-btn utility"
                     data-action="clear"
+                    aria-label="Clear calculator"
                 >
                     AC
                 </button>
 
 
                 <button
+                    type="button"
                     class="calc-btn utility"
                     data-action="delete"
+                    aria-label="Delete"
                 >
                     ⌫
                 </button>
 
 
                 <button
+                    type="button"
                     class="calc-btn utility"
                     data-action="percent"
+                    aria-label="Percentage"
                 >
                     %
                 </button>
 
 
                 <button
+                    type="button"
                     class="calc-btn operator"
                     data-operator="/"
+                    aria-label="Divide"
                 >
                     ÷
                 </button>
 
 
 
-                <!-- ROW 2 -->
+                <!-- =====================
+                     ROW 2
+                ====================== -->
 
                 <button
+                    type="button"
                     class="calc-btn number"
                     data-number="7"
                 >
@@ -155,6 +205,7 @@
 
 
                 <button
+                    type="button"
                     class="calc-btn number"
                     data-number="8"
                 >
@@ -163,6 +214,7 @@
 
 
                 <button
+                    type="button"
                     class="calc-btn number"
                     data-number="9"
                 >
@@ -171,17 +223,22 @@
 
 
                 <button
+                    type="button"
                     class="calc-btn operator"
                     data-operator="*"
+                    aria-label="Multiply"
                 >
                     ×
                 </button>
 
 
 
-                <!-- ROW 3 -->
+                <!-- =====================
+                     ROW 3
+                ====================== -->
 
                 <button
+                    type="button"
                     class="calc-btn number"
                     data-number="4"
                 >
@@ -190,6 +247,7 @@
 
 
                 <button
+                    type="button"
                     class="calc-btn number"
                     data-number="5"
                 >
@@ -198,6 +256,7 @@
 
 
                 <button
+                    type="button"
                     class="calc-btn number"
                     data-number="6"
                 >
@@ -206,17 +265,22 @@
 
 
                 <button
+                    type="button"
                     class="calc-btn operator"
                     data-operator="-"
+                    aria-label="Subtract"
                 >
                     −
                 </button>
 
 
 
-                <!-- ROW 4 -->
+                <!-- =====================
+                     ROW 4
+                ====================== -->
 
                 <button
+                    type="button"
                     class="calc-btn number"
                     data-number="1"
                 >
@@ -225,6 +289,7 @@
 
 
                 <button
+                    type="button"
                     class="calc-btn number"
                     data-number="2"
                 >
@@ -233,6 +298,7 @@
 
 
                 <button
+                    type="button"
                     class="calc-btn number"
                     data-number="3"
                 >
@@ -241,25 +307,32 @@
 
 
                 <button
+                    type="button"
                     class="calc-btn operator"
                     data-operator="+"
+                    aria-label="Add"
                 >
                     +
                 </button>
 
 
 
-                <!-- ROW 5 -->
+                <!-- =====================
+                     ROW 5
+                ====================== -->
 
                 <button
+                    type="button"
                     class="calc-btn utility"
                     data-action="sign"
+                    aria-label="Change sign"
                 >
                     +/−
                 </button>
 
 
                 <button
+                    type="button"
                     class="calc-btn number zero"
                     data-number="0"
                 >
@@ -268,16 +341,20 @@
 
 
                 <button
+                    type="button"
                     class="calc-btn number"
                     data-number="."
+                    aria-label="Decimal"
                 >
                     .
                 </button>
 
 
                 <button
+                    type="button"
                     class="calc-btn equals"
                     id="equalsBtn"
+                    aria-label="Equals"
                 >
                     =
                 </button>
@@ -285,7 +362,12 @@
             </div>
 
         </section>
-        <!-- Bottom safe area -->
+
+
+
+        <!-- =========================
+             MOBILE SAFE AREA
+        ========================== -->
 
         <div class="bottom-space"></div>
 
@@ -294,11 +376,55 @@
 
 
 
-    <!-- JavaScript -->
+    <!-- =========================
+         MAIN JAVASCRIPT
+    ========================== -->
 
     <script
         src="{{ url_for('static', filename='js/script.js') }}"
     ></script>
+
+
+
+    <!-- =========================
+         PWA SERVICE WORKER
+    ========================== -->
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener(
+                "load",
+                function () {
+
+                    navigator.serviceWorker
+                        .register(
+                            "{{ url_for('static', filename='service-worker.js') }}"
+                        )
+                        .then(function (registration) {
+
+                            console.log(
+                                "PWA Service Worker registered:",
+                                registration.scope
+                            );
+
+                        })
+                        .catch(function (error) {
+
+                            console.error(
+                                "Service Worker registration failed:",
+                                error
+                            );
+
+                        });
+
+                }
+            );
+
+        }
+
+    </script>
 
 
 </body>
