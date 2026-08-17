@@ -1,0 +1,908 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(99, 102, 241, 0.12),
+            transparent 35%
+        ),
+        #090b10;
+
+    color: #ffffff;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+}
+
+
+
+/* =====================================================
+   APP CONTAINER
+===================================================== */
+
+.app {
+    width: 100%;
+
+    max-width: 480px;
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    padding:
+        18px
+        16px
+        30px;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.top-bar {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+
+.app-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.app-icon {
+    width: 44px;
+
+    height: 44px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #8b5cf6
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(99, 102, 241, 0.28);
+
+    font-size: 25px;
+
+    font-weight: 700;
+}
+
+
+.app-brand h1 {
+    font-size: 18px;
+
+    line-height: 1.1;
+
+    letter-spacing: -0.3px;
+}
+
+
+.app-brand p {
+    margin-top: 3px;
+
+    color: #737887;
+
+    font-size: 11px;
+
+    font-weight: 500;
+}
+
+
+
+/* =====================================================
+   THEME BUTTON
+===================================================== */
+
+.icon-button {
+    width: 42px;
+
+    height: 42px;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+}
+
+
+.icon-button:active {
+    transform: scale(0.92);
+}
+
+
+.icon-button:hover {
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+
+
+/* =====================================================
+   CALCULATOR CARD
+===================================================== */
+
+.calculator-card {
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 28px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+
+/* =====================================================
+   DISPLAY
+===================================================== */
+
+.display {
+    width: 100%;
+
+    min-height: 145px;
+
+    padding:
+        20px
+        16px;
+
+    margin-bottom: 14px;
+
+    border-radius: 22px;
+
+    background:
+        #0d1016;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.045);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    align-items: flex-end;
+
+    overflow: hidden;
+}
+
+
+.previous-display {
+    width: 100%;
+
+    min-height: 24px;
+
+    color: #676d7c;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    text-align: right;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.current-display {
+    width: 100%;
+
+    margin-top: 7px;
+
+    color: #f8fafc;
+
+    font-size: clamp(
+        36px,
+        10vw,
+        54px
+    );
+
+    font-weight: 600;
+
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+
+    text-align: right;
+
+    white-space: nowrap;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+}
+
+
+.current-display::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+/* =====================================================
+   BUTTON GRID
+===================================================== */
+
+.buttons {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 9px;
+}
+
+
+
+/* =====================================================
+   ALL BUTTONS
+===================================================== */
+
+.calc-btn {
+    width: 100%;
+
+    aspect-ratio: 1 / 0.86;
+
+    min-height: 58px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    color: #f8fafc;
+
+    font-size: 21px;
+
+    font-weight: 550;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    touch-action: manipulation;
+
+    transition:
+        transform 0.1s ease,
+        filter 0.1s ease,
+        background 0.1s ease;
+
+    -webkit-touch-callout: none;
+}
+
+
+.calc-btn:active {
+    transform: scale(0.92);
+
+    filter: brightness(1.25);
+}
+
+
+.calc-btn:hover {
+    filter: brightness(1.12);
+}
+
+
+
+/* =====================================================
+   NUMBER BUTTONS
+===================================================== */
+
+.number {
+    background:
+        #171a21;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.035);
+}
+
+
+.number:hover {
+    background:
+        #1c2028;
+}
+
+
+
+/* =====================================================
+   UTILITY BUTTONS
+===================================================== */
+
+.utility {
+    background:
+        #222630;
+
+    color: #b7bdc9;
+
+    font-size: 17px;
+}
+
+
+.utility:hover {
+    background:
+        #292e39;
+}
+
+
+
+/* =====================================================
+   OPERATOR BUTTONS
+===================================================== */
+
+.operator {
+    background:
+        linear-gradient(
+            145deg,
+            #4f46e5,
+            #6366f1
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px
+        rgba(79, 70, 229, 0.16);
+}
+
+
+.operator:hover {
+    background:
+        linear-gradient(
+            145deg,
+            #5b52ed,
+            #716cf4
+        );
+}
+
+
+
+/* =====================================================
+   EQUAL BUTTON
+===================================================== */
+
+.equals {
+    background:
+        linear-gradient(
+            145deg,
+            #10b981,
+            #059669
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px
+        rgba(16, 185, 129, 0.18);
+}
+
+
+.equals:hover {
+    background:
+        linear-gradient(
+            145deg,
+            #18c994,
+            #08a77a
+        );
+}
+
+
+
+/* =====================================================
+   ZERO BUTTON
+===================================================== */
+
+.zero {
+    /* Keeps normal grid layout */
+    min-width: 0;
+}
+
+
+
+/* =====================================================
+   HISTORY
+===================================================== */
+
+.history-card {
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 19px;
+
+    border-radius: 23px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.055);
+}
+
+
+.history-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+
+.history-top h2 {
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+
+.history-top p {
+    margin-top: 4px;
+
+    color: #676d7c;
+
+    font-size: 11px;
+}
+
+
+.clear-history {
+    border: none;
+
+    background: transparent;
+
+    color: #818cf8;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    padding: 7px;
+
+    border-radius: 8px;
+}
+
+
+.clear-history:active {
+    background:
+        rgba(99, 102, 241, 0.1);
+}
+
+
+
+/* =====================================================
+   HISTORY ITEMS
+===================================================== */
+
+.history-item {
+    padding: 13px 14px;
+
+    margin-bottom: 8px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.035);
+
+    animation:
+        historyIn 0.2s ease;
+}
+
+
+@keyframes historyIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+.history-expression {
+    color: #737887;
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+
+.history-result {
+    margin-top: 4px;
+
+    color: #f1f5f9;
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+
+
+/* =====================================================
+   EMPTY HISTORY
+===================================================== */
+
+.empty-history {
+    min-height: 90px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #5f6572;
+
+    font-size: 12px;
+}
+
+
+.empty-icon {
+    width: 35px;
+
+    height: 35px;
+
+    margin-bottom: 8px;
+
+    border-radius: 11px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    color: #707785;
+
+    font-size: 17px;
+}
+
+
+
+/* =====================================================
+   BOTTOM SPACE
+===================================================== */
+
+.bottom-space {
+    height: 10px;
+}
+
+
+
+/* =====================================================
+   LIGHT THEME
+===================================================== */
+
+body.light {
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(99, 102, 241, 0.12),
+            transparent 35%
+        ),
+        #f4f6fb;
+
+    color: #111827;
+}
+
+
+body.light .calculator-card,
+body.light .history-card {
+    background:
+        rgba(255, 255, 255, 0.85);
+
+    border-color:
+        rgba(15, 23, 42, 0.06);
+
+    box-shadow:
+        0 15px 45px
+        rgba(15, 23, 42, 0.08);
+}
+
+
+body.light .display {
+    background:
+        #f8fafc;
+
+    border-color:
+        rgba(15, 23, 42, 0.05);
+}
+
+
+body.light .current-display {
+    color: #111827;
+}
+
+
+body.light .previous-display {
+    color: #8b93a1;
+}
+
+
+body.light .number {
+    background:
+        #e9edf3;
+
+    color: #111827;
+
+    border-color:
+        transparent;
+}
+
+
+body.light .number:hover {
+    background:
+        #e1e6ee;
+}
+
+
+body.light .utility {
+    background:
+        #dfe4eb;
+
+    color: #4b5563;
+}
+
+
+body.light .utility:hover {
+    background:
+        #d6dce5;
+}
+
+
+body.light .history-item {
+    background:
+        #f1f3f7;
+
+    border-color:
+        transparent;
+}
+
+
+body.light .history-result {
+    color: #111827;
+}
+
+
+body.light .icon-button {
+    background:
+        rgba(15, 23, 42, 0.05);
+
+    color: #111827;
+
+    border-color:
+        rgba(15, 23, 42, 0.06);
+}
+
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .app {
+        padding:
+            13px
+            11px
+            25px;
+    }
+
+
+    .calculator-card {
+        padding: 11px;
+
+        border-radius: 23px;
+    }
+
+
+    .display {
+        min-height: 130px;
+
+        padding: 16px 13px;
+
+        border-radius: 19px;
+    }
+
+
+    .buttons {
+        gap: 7px;
+    }
+
+
+    .calc-btn {
+        min-height: 53px;
+
+        border-radius: 15px;
+
+        font-size: 19px;
+    }
+
+
+    .utility {
+        font-size: 15px;
+    }
+
+
+    .history-card {
+        padding: 16px;
+
+        border-radius: 20px;
+    }
+
+}
+
+
+
+/* =====================================================
+   TABLET / DESKTOP
+===================================================== */
+
+@media (min-width: 700px) {
+
+    body {
+        padding: 30px 0;
+    }
+
+
+    .app {
+        min-height: auto;
+
+        padding-bottom: 30px;
+    }
+
+
+    .calc-btn {
+        min-height: 68px;
+
+        border-radius: 19px;
+    }
+
+
+    .calculator-card {
+        padding: 18px;
+    }
+
+}
+
+
+
+/* =====================================================
+   REDUCE MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+
+}

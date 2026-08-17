@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0b0d12"
+    >
+
+    <meta
+        name="description"
+        content="Simple modern Flask calculator"
+    >
+
+    <title>Calc</title>
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- App -->
+
+    <main class="app">
+
+
+        <!-- =========================
+             TOP BAR
+        ========================== -->
+
+        <header class="top-bar">
+
+            <div class="app-brand">
+
+                <div class="app-icon">
+                    <span>💘</span>
+                </div>
+
+                <div>
+
+                    <h1>Calculator</h1>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="icon-button"
+                id="themeBtn"
+                aria-label="Change theme"
+            >
+                ☀
+            </button>
+
+        </header>
+
+
+
+        <!-- =========================
+             CALCULATOR
+        ========================== -->
+
+        <section class="calculator-card">
+
+
+            <!-- Display -->
+
+            <div class="display">
+
+                <div
+                    id="previousDisplay"
+                    class="previous-display"
+                >
+                    0
+                </div>
+
+
+                <div
+                    id="currentDisplay"
+                    class="current-display"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 BUTTON AREA
+            ========================== -->
+
+            <div class="buttons">
+
+
+                <!-- ROW 1 -->
+
+                <button
+                    class="calc-btn utility"
+                    data-action="clear"
+                >
+                    AC
+                </button>
+
+
+                <button
+                    class="calc-btn utility"
+                    data-action="delete"
+                >
+                    ⌫
+                </button>
+
+
+                <button
+                    class="calc-btn utility"
+                    data-action="percent"
+                >
+                    %
+                </button>
+
+
+                <button
+                    class="calc-btn operator"
+                    data-operator="/"
+                >
+                    ÷
+                </button>
+
+
+
+                <!-- ROW 2 -->
+
+                <button
+                    class="calc-btn number"
+                    data-number="7"
+                >
+                    7
+                </button>
+
+
+                <button
+                    class="calc-btn number"
+                    data-number="8"
+                >
+                    8
+                </button>
+
+
+                <button
+                    class="calc-btn number"
+                    data-number="9"
+                >
+                    9
+                </button>
+
+
+                <button
+                    class="calc-btn operator"
+                    data-operator="*"
+                >
+                    ×
+                </button>
+
+
+
+                <!-- ROW 3 -->
+
+                <button
+                    class="calc-btn number"
+                    data-number="4"
+                >
+                    4
+                </button>
+
+
+                <button
+                    class="calc-btn number"
+                    data-number="5"
+                >
+                    5
+                </button>
+
+
+                <button
+                    class="calc-btn number"
+                    data-number="6"
+                >
+                    6
+                </button>
+
+
+                <button
+                    class="calc-btn operator"
+                    data-operator="-"
+                >
+                    −
+                </button>
+
+
+
+                <!-- ROW 4 -->
+
+                <button
+                    class="calc-btn number"
+                    data-number="1"
+                >
+                    1
+                </button>
+
+
+                <button
+                    class="calc-btn number"
+                    data-number="2"
+                >
+                    2
+                </button>
+
+
+                <button
+                    class="calc-btn number"
+                    data-number="3"
+                >
+                    3
+                </button>
+
+
+                <button
+                    class="calc-btn operator"
+                    data-operator="+"
+                >
+                    +
+                </button>
+
+
+
+                <!-- ROW 5 -->
+
+                <button
+                    class="calc-btn utility"
+                    data-action="sign"
+                >
+                    +/−
+                </button>
+
+
+                <button
+                    class="calc-btn number zero"
+                    data-number="0"
+                >
+                    0
+                </button>
+
+
+                <button
+                    class="calc-btn number"
+                    data-number="."
+                >
+                    .
+                </button>
+
+
+                <button
+                    class="calc-btn equals"
+                    id="equalsBtn"
+                >
+                    =
+                </button>
+
+            </div>
+
+        </section>
+        <!-- Bottom safe area -->
+
+        <div class="bottom-space"></div>
+
+
+    </main>
+
+
+
+    <!-- JavaScript -->
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
+
+
+</body>
+
+</html>
